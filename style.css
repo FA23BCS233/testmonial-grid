@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "BSC" ;
+    src: url(./font/BarlowSemiCondensed-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "BSC";
+    src: url(./font/BarlowSemiCondensed-SemiBold.ttf);
+    font-weight: 600;
+}
+
+:root{
+    --purple-50: hsl(260, 100%, 95%);
+    --purple-300: hsl(264, 82%, 80%);
+    --purple-500: hsl(263, 55%, 52%);
+    --white: hsl(0, 0%, 100%);
+    --grey-100: hsl(214, 17%, 92%);
+    --grey-200: hsl(0, 0%, 81%);
+    --grey-300: hsl(224, 10%, 45%);
+    --grey-500: hsl(217, 19%, 35%);
+    --dark-blue: hsl(219, 29%, 14%);
+    --black: hsl(0, 0%, 7%);
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--grey-100);
+}
+
+main {
+    min-height: calc(100vh - 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "BSC";
+    font-size: 13px;
+    padding:100px 0px;
+    overflow-x: hidden;
+}
+
+.testmonial-grid{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(auto-fit , minmax(320px, 20%));
+    gap: 2.5%;
+    justify-content: center;
+}
+
+
+.card{
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.image-container img{
+    border-radius: 50%;
+    width: 35px;
+}
+
+.name-job-title h5{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card>h5{
+    font-size: 22px;
+    margin: 16px 0px;
+}
+
+.card>p{
+    font-size: 15px;
+}
+
+
+/**
+ * Light Colored Text
+*/
+.card[data-text-color = "light"]{
+    color: var(--grey-100);
+}
+
+.card[data-text-color = "light"] h5{
+    color: var(--white);
+}
+
+
+/**
+ * Dark Colored Text
+*/
+.card[data-text-color = "dark"]{
+    color: var(--grey-300);
+}
+
+.card[data-text-color = "dark"] h5{
+    color: var(--grey-500);
+}
+
+/**
+ * Setting the Colors of the Cards
+*/
+.card[data-color="purple"]{
+    background-color: var(--purple-500);
+}
+.card[data-color="purple"] img{
+    border: 2px solid var(--purple-300);
+}
+
+.card[data-color="gray"]{
+    background-color: var(--grey-500);
+}
+
+.card[data-color="white"]{
+    background-color: white;
+}
+.card[data-color="white"] img{
+    border: 2px solid var(--purple-50);
+}
+
+.card[data-color="black"]{
+    background-color: var(--black);
+}
+.card[data-color="black"] img{
+     border:  2px solid var(--purple-300);
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a{
+    color: hsl(228, 45%, 44%);
+}
+
+
+
+/**
+ * Preparing the desktop view 
+*/
+@media  (min-width: 1024px) {
+    .testmonial-grid{
+        grid-template-columns: repeat(4 , minmax(210px, 1fr));
+    }
+
+    .testmonial-grid > :first-child{
+        grid-column: span 2;
+        position: relative;
+    }
+
+    .card:first-child::after{
+        content: "";
+        background-image: url("./images/bg-pattern-quotation.svg");
+        width: 115px;
+        height: 115px;
+        background-size: contain;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        right: 10%;
+        z-index: 1;
+    }
+
+    .card *{
+        position: relative;
+        z-index: 10;
+    }
+
+    .testmonial-grid > :nth-child(3){
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+
+    .testmonial-grid > :nth-child(4){
+        grid-column: span 2;
+    }
+
+    .testmonial-grid > :last-child{
+        grid-row: 1/3;
+        grid-column: 4/5;
+    }
+}
