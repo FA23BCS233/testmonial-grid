@@ -34,7 +34,7 @@ body {
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: var(--grey-100);
+    background-color: #f6f6f6;
 }
 
 main {
@@ -60,6 +60,9 @@ main {
 .card{
     padding: 30px;
     border-radius: 12px;
+    box-shadow: 32px 50px 26px 7px var(--grey-200);
+    position: relative;
+    z-index: 1;
 }
 
 .info{
